@@ -121,10 +121,6 @@ const dualTiles = [
   { row: 3, col: 1, pattern: [BLUE, BLACK, BLACK, BLUE] }
 ];
 
-// const isDualTile = (row, col) => {
-//   return dualTiles.some(tile => tile.row === row && tile.col === col);
-// };
-
 const isCenterTile = (row, col) => row === 2 && col === 2;
 
 const getVictoryPattern = (row, col) => {
@@ -249,39 +245,6 @@ const PuzzleGame = () => {
 
   return (
     <div className="puzzle-container">
-      <style>
-        {`
-          .victory-pattern {
-            position: absolute;
-            inset: 0;
-            z-index: 20;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 5s ease;
-          }
-          
-          .victory-pattern.visible {
-            opacity: 1;
-          }
-          
-          .victory-pattern svg {
-            width: 100%;
-            height: 100%;
-          }
-          
-          .victory-pattern path {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: drawLine 0.1s ease-out forwards;
-          }
-          
-          @keyframes drawLine {
-            to {
-              stroke-dashoffset: 0;
-            }
-          }
-        `}
-      </style>
       <button
         onClick={createGrid}
         className="reset-button"
