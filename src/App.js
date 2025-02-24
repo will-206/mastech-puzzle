@@ -5,6 +5,7 @@ const gridSize = 5;
 const BLUE = "#1371bb";
 const BLACK = "#343235";
 
+// define the 5x5 tile patterns
 const tilePatterns = [
   [["", "", "", BLUE], ["", "", BLUE, BLACK], ["", "", BLACK, BLUE], ["", "", BLUE, BLACK], ["", "", BLACK, ""]],
   [["", BLUE, "", BLACK], [BLUE, BLACK, BLACK, BLACK], [BLACK, BLUE, BLACK, BLACK], [BLUE, BLACK, BLACK, BLUE], [BLACK, "", BLUE, ""]],
@@ -13,114 +14,52 @@ const tilePatterns = [
   [["", BLACK, "", ""], [BLACK, BLUE, "", ""], [BLUE, BLACK, "", ""], [BLACK, BLUE, "", ""], [BLUE, "", "", ""]]
 ];
 
+// define the "victory pattern" across the 7 tiles that contain it
 const victoryPatterns = {
   center: `
     <svg viewBox="0 0 100 100" class="w-full h-full">
-      <path d="
-        M 0 100
-        A 50 50 0 0 1 100 0
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
-      <path d="
-        M 0 0
-        A 50 50 0 0 1 100 100
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
+      <path d="M 0 100 A 50 50 0 0 1 100 0" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
+      <path d="M 0 0 A 50 50 0 0 1 100 100" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
     </svg>
   `,
   topCenter: `
     <svg viewBox="0 0 100 100" class="w-full h-full">
-       <path d="
-        M 100 100
-        A 50 50 0 0 1 0 0
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
+      <path d="M 100 100 A 50 50 0 0 1 0 0" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
     </svg>
   `,
   leftCenter: `
     <svg viewBox="0 0 100 100" class="w-full h-full">
-       <path d="
-        M 0 0
-        A 50 50 0 0 1 100 100
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
+      <path d="M 0 0 A 50 50 0 0 1 100 100" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
     </svg>
   `,
   rightCenter: `
     <svg viewBox="0 0 100 100" class="w-full h-full">
-       <path d="
-        M 100 100
-        A 50 50 0 0 1 0 0
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
+      <path d="M 100 100 A 50 50 0 0 1 0 0" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
     </svg>
   `,
   bottomCenter: `
     <svg viewBox="0 0 100 100" class="w-full h-full">
-      <path d="
-        M 100 0
-        A 50 60 0 0 1 100 100
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
+      <path d="M 100 0 A 50 60 0 0 1 100 100" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
     </svg>
   `,
   innerLeft: `
     <svg viewBox="0 0 100 100" class="w-full h-full">
-       <path d="
-        M 100 0
-        A 50 50 0 0 1 0 100
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
+      <path d="M 100 0 A 50 50 0 0 1 0 100" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
     </svg>
   `,
   bottomRight: `
     <svg viewBox="0 0 100 100" class="w-full h-full">
-       <path d="
-        M 0 100
-        A 50 50 0 0 1 100 0
-      "
-      stroke="${BLACK}"
-      stroke-width="64"
-      fill="none"
-      stroke-linecap="round"
-      />
+      <path d="M 0 100 A 50 50 0 0 1 100 0" stroke="${BLACK}" stroke-width="64" fill="none" stroke-linecap="round"/>
     </svg>
   `
 };
 
+// account for the two way symmetrical tiles
 const dualTiles = [
   { row: 1, col: 3, pattern: [BLUE, BLACK, BLACK, BLUE] },
   { row: 3, col: 1, pattern: [BLUE, BLACK, BLACK, BLUE] }
 ];
-
+// account for the 4 way symmetrical center tile
 const isCenterTile = (row, col) => row === 2 && col === 2;
 
 const getVictoryPattern = (row, col) => {
@@ -273,19 +212,20 @@ const PuzzleGame = () => {
                     color && (
                       <div
                         key={index}
-                        className={`quarter-circle ${index === 0 ? 'quarter-circle-tl' :
-                            index === 1 ? 'quarter-circle-tr' :
-                              index === 2 ? 'quarter-circle-bl' :
-                                'quarter-circle-br'
+                        className={`quadrant ${index === 0 ? 'quadrant-tl' :
+                            index === 1 ? 'quadrant-tr' :
+                              index === 2 ? 'quadrant-bl' :
+                                'quadrant-br'
                           }`}
                       >
                         <svg viewBox="0 0 50 50">
                           <path
+                            // draw corner quadrants
                             d={
                               index === 0 ? "M32,0 A32,32 0 0,1 0,32 L0,0 Z" :
-                                index === 1 ? "M18,0 A32,32 0 0,0 50,32 L50,0 Z" :
-                                  index === 2 ? "M0,18 A32,32 0 0,1 32,50 L0,50 Z" :
-                                    "M18,50 A32,32 0 0,1 50,18 L50,50 Z"
+                              index === 1 ? "M18,0 A32,32 0 0,0 50,32 L50,0 Z" :
+                              index === 2 ? "M0,18 A32,32 0 0,1 32,50 L0,50 Z" :
+                                            "M18,50 A32,32 0 0,1 50,18 L50,50 Z"
                             }
                             fill={color}
                           />

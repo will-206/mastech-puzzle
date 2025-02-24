@@ -34,33 +34,33 @@
   position: relative;
 }
 
-.quarter-circle {
+.quadrant {
   position: absolute;
   width: 50%;
   height: 50%;
 }
 
-.quarter-circle-tl {
+.quadrant-tl {
   top: 0;
   left: 0;
 }
 
-.quarter-circle-tr {
+.quadrant-tr {
   top: 0;
   right: 0;
 }
 
-.quarter-circle-bl {
+.quadrant-bl {
   bottom: 0;
   left: 0;
 }
 
-.quarter-circle-br {
+.quadrant-br {
   bottom: 0;
   right: 0;
 }
 
-.quarter-circle svg {
+.quadrant svg {
   width: 100%;
   height: 100%;
 }
