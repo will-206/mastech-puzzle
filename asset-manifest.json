@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mastech-puzzle/static/css/main.1fa88d8b.css",
+    "main.js": "/mastech-puzzle/static/js/main.97b22a50.js",
+    "static/js/453.be941f8e.chunk.js": "/mastech-puzzle/static/js/453.be941f8e.chunk.js",
+    "index.html": "/mastech-puzzle/index.html",
+    "main.1fa88d8b.css.map": "/mastech-puzzle/static/css/main.1fa88d8b.css.map",
+    "main.97b22a50.js.map": "/mastech-puzzle/static/js/main.97b22a50.js.map",
+    "453.be941f8e.chunk.js.map": "/mastech-puzzle/static/js/453.be941f8e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1fa88d8b.css",
+    "static/js/main.97b22a50.js"
+  ]
+}
