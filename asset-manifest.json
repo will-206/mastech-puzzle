@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mastech-puzzle/static/css/main.1fa88d8b.css",
-    "main.js": "/mastech-puzzle/static/js/main.97b22a50.js",
+    "main.css": "/mastech-puzzle/static/css/main.1fddef61.css",
+    "main.js": "/mastech-puzzle/static/js/main.8038d2c8.js",
     "static/js/453.be941f8e.chunk.js": "/mastech-puzzle/static/js/453.be941f8e.chunk.js",
     "index.html": "/mastech-puzzle/index.html",
-    "main.1fa88d8b.css.map": "/mastech-puzzle/static/css/main.1fa88d8b.css.map",
-    "main.97b22a50.js.map": "/mastech-puzzle/static/js/main.97b22a50.js.map",
+    "main.1fddef61.css.map": "/mastech-puzzle/static/css/main.1fddef61.css.map",
+    "main.8038d2c8.js.map": "/mastech-puzzle/static/js/main.8038d2c8.js.map",
     "453.be941f8e.chunk.js.map": "/mastech-puzzle/static/js/453.be941f8e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1fa88d8b.css",
-    "static/js/main.97b22a50.js"
+    "static/css/main.1fddef61.css",
+    "static/js/main.8038d2c8.js"
   ]
 }
