@@ -121,9 +121,9 @@ const dualTiles = [
   { row: 3, col: 1, pattern: [BLUE, BLACK, BLACK, BLUE] }
 ];
 
-const isDualTile = (row, col) => {
-  return dualTiles.some(tile => tile.row === row && tile.col === col);
-};
+// const isDualTile = (row, col) => {
+//   return dualTiles.some(tile => tile.row === row && tile.col === col);
+// };
 
 const isCenterTile = (row, col) => row === 2 && col === 2;
 
