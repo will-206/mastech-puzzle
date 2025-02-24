@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+.puzzle-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  user-select: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  aspect-ratio: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.puzzle-tile {
+  aspect-ratio: 1;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+}
+
+.tile-content {
+  position: absolute;
+  inset: 0;
+  transition: all 0.4s ease;
+}
+
+.tile-rotatable {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.quarter-circle {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+}
+
+.quarter-circle-tl {
+  top: 0;
+  left: 0;
+}
+
+.quarter-circle-tr {
+  top: 0;
+  right: 0;
+}
+
+.quarter-circle-bl {
+  bottom: 0;
+  left: 0;
+}
+
+.quarter-circle-br {
+  bottom: 0;
+  right: 0;
+}
+
+.quarter-circle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tile-hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.reset-button {
+  border: none;
+  background-color: #1671b8;  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color: #1371bb;
+}
+
+@media (max-width: 640px) {
+  .puzzle-container {
+    padding: 0.5rem;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  
+  .puzzle-grid {
+    gap: 1px;
+    padding: 1px;
   }
 }
