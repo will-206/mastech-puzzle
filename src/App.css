@@ -23,6 +23,7 @@
 
 .tile-content {
   position: absolute;
+  background-color: white; 
   inset: 0;
   transition: all 0.4s ease;
 }
@@ -30,8 +31,19 @@
 .tile-rotatable {
   width: 100%;
   height: 100%;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for box-shadow */
   position: relative;
+}
+
+.tile-hover .tile-rotatable {
+  transform: translateY(-4px) rotate(var(--rotation-angle)); /* Combine transforms */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  /* border: 1px inset rgb(222, 222, 222); */
+}
+
+.tile-rotatable:not(.tile-hover .tile-rotatable) {
+  transform: rotate(var(--rotation-angle));
 }
 
 .quadrant {
@@ -65,15 +77,10 @@
   height: 100%;
 }
 
-.tile-hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  z-index: 10;
-}
-
 .reset-button {
   border: none;
-  background-color: #1671b8;  color: white;
+  background-color: #1671b8;  
+  color: white;
   font-weight: bold;
   font-size: 18px;
   padding: 0.5rem 1rem;

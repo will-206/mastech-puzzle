@@ -199,13 +199,12 @@ const PuzzleGame = () => {
               onClick={() => rotateTile(rowIndex, colIndex)}
             >
               <div
-                className={`tile-content ${rotatingTile === tile.id ? 'tile-hover' : ''
-                  }`}
+                className={`tile-content ${rotatingTile === tile.id ? 'tile-hover' : ''}`}
               >
                 <div
                   className="tile-rotatable"
                   style={{
-                    transform: `rotate(${tile.visualRotation}deg)`
+                    '--rotation-angle': `${tile.visualRotation}deg`
                   }}
                 >
                   {tile.pattern.map((color, index) => (
